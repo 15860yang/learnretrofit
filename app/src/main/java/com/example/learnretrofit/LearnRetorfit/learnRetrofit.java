@@ -1,8 +1,10 @@
-package com.example.learnretrofit;
+package com.example.learnretrofit.LearnRetorfit;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.example.learnretrofit.R;
 
 import java.io.IOException;
 import java.util.Map;
@@ -28,14 +30,14 @@ import retrofit2.http.PartMap;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public class MainActivity extends AppCompatActivity {
+public class learnRetrofit extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main01);
 
 
         requestNetByRetrofitTest04();

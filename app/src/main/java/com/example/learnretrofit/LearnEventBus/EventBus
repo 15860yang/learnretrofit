@@ -1,0 +1,17 @@
+EventBus三要素：
+    Event：事件，可以是任意类型的对象
+    Subscriber：事件订阅者，在EventBus3.0之前消息处理的方法只能限定于OnEvent，onEventMainThread，onEventbackgroundThread
+                和onEventAsync，他们分别代表四种线程模型，在3.0之后，事件处理的方法可以随便取名，但是需要添加一个
+                注解@Subscriber，并且要指定县城模型（默认为POSTING），4种线程模型下面会讲
+    Publisher：事件发布者，可以在任意线程任意位置发送事件，直接调用EventBus的post（Object）方法，可以自己实例化
+                EventBus对象，但一般使用EventBus.getDefault()就可以，根据post函数参数的类型，会自动调用订阅相应
+                类型事件的函数
+
+
+    EventBus的四种ThreadMode如下：
+                POSTING（默认）：事件处理函数会在发布该事件的线程中执行，也就是说事件发布和处理是在一个线程当中的，
+                               这种的话应该尽量避免执行耗时操作，因为他会阻塞事件的传递
+                MAIN：事件的处理会在UI线程当中执行，所以这个处理的时间不能太长
+                BACKGROUND：如果事件是在UI线程发出的，那么该事件的处理就会在一个新线程中运行，如果不是在UI线程，那么
+                            事件的处理直接在当前线程执行，此类事件处理函数应避免执行UI操作
+                ASYNC：事件处理函数总会在新线程执行，此类处理函数也应该避免进行UI操作
