@@ -13,9 +13,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-public class MainActivity extends AppCompatActivity {
-
-    private static final String TAG = "MainActivity";
+public class learnEventBus extends AppCompatActivity {
 
     private TextView tv_message,tv1_message;
     private Button bt_message,bt_subscription;
@@ -40,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         bt_message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,EventBusTestActivity02.class));
+                startActivity(new Intent(learnEventBus.this,EventBusTestActivity02.class));
             }
         });
 
@@ -51,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //注册事件
                 EventBus eventBus = EventBus.getDefault();
-                eventBus.register(MainActivity.this);
+                eventBus.register(learnEventBus.this);
             }
         });
     }
@@ -74,6 +72,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         //取消注册
-        EventBus.getDefault().unregister(MainActivity.class);
+        EventBus.getDefault().unregister(learnEventBus.class);
     }
 }

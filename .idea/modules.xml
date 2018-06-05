@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://F:\MyAndroidProject\learn\learnretrofit\LearnRetrofit.iml" filepath="F:\MyAndroidProject\learn\learnretrofit\LearnRetrofit.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://F:\MyAndroidProject\learn\learnretrofit\app\app.iml" filepath="F:\MyAndroidProject\learn\learnretrofit\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/learnretrofit.iml" filepath="$PROJECT_DIR$/learnretrofit.iml" />
     </modules>
   </component>
