@@ -1,0 +1,16 @@
+MVVM：基于MVP而来，将Presenter改成ViewModel，与MVP的不同的是ViewModel是Model与View双向绑定，当View改变，ViewModel
+      通知Model更新数据，当Model改变，ViewModel通知View更新，在2015年google的I/o大会中，发布了MVVM的支持库Data Binding
+
+Data Binding：通过Data Binding，我们可以通过声明式布局以精简带的代码来绑定应用程序逻辑和布局，
+
+            使用须知：Android的Gradle插件版本不低于1.5.0-alphal，android  studio的版本不低于1.3
+
+            然后在build.gradle加上如下配置
+
+                    android {
+
+                         dataBinding {
+                            enabled = true
+                         }
+
+                    }

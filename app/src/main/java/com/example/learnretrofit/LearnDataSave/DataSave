@@ -1,0 +1,45 @@
+数据存储：
+    方式一：文件存储
+            文件存储是直接以写文件的形式将数据存进文件
+    方式二：SharedPreference存储
+            使用键值对的方式存储，
+                步骤：先获得SharedPreference对象
+                        三种方式获得：一：Content.getSharedPreference(),两个参数，第一个参数表示文件名，
+                                        第二个参数表示指定操作模式
+                                    二：Activity.getPrefences(),只接受一个操作模式的参数，文件名直接以当
+                                        前Activity的名字命名
+                                    三：PreferenceManager.getDefaultSharedPreferences(),静态方法，
+                                        接收一个Content参数，并使用当前应用程序的包名作为前缀来命名
+                        获得之后：先调用SharedPreference对象的edit方法获取一个SharedPreferences.Editor
+                                对象，向这个对象中添加数据（putString（）这样子，各个类型的以此类推）
+                                调用apply方法将已经添加的数据提交
+    方式三：数据库存储
+            android 为了让我们能方便的使用数据库，给我们提供了一个SQLiteOpenHelper帮助类
+            SQLiteOpenHelper这个类的用法：本身是抽象类，必须我们自己继承实现
+                重写的方法：onCreate()创建数据库
+                          onUpgrade()升级数据库
+
+                比较重要的实例方法(都是创建或者打开一个数据库)：
+                        getReadableDatabase()：当数据库不可写入的时候，这个就只能以读的方式打开数据库
+                        getWritableDatabase()：而这个方法会出异常
+                两个可供重写的构造方法：这里说哪个参数(4个参数)少的方法：
+                        四个参数：context，数据库名，null(这里也允许是一个自定义的Cursor，他会在查询到数据之后返回)，当前数据库的版本号
+
+                构建出SQLiteOpenHelper的实例之后，就可以使用它的两个实例方法来创建数据库实例了
+
+
+                基本建表语句：加入我们要创建一个BookStore.db这样的数据库，然后在数据库中新建一张Book表，表中有id(主键)，
+                            作者，价格，页数等
+
+                      这样的建表语句如下：create table Book(
+                                        id integer primary key autoincrement,
+                                        author text,
+                                        price real,
+                                        pages integer,
+                                        name text)
+
+                                 说明：integer代表整型，real代表浮点型，text代表文本型，blob代表二进制
+                                      primary key 将id列设置为主键，并用autoincrement表示id列是自增的
+
+
+    方式四：保存在SD卡中

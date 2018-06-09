@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+
+    <dbname value="Bookstore"></dbname>
+    <version value="2" ></version>
+
+    <list>
+        <!--这里是类映射-->
+        <mapping class="com.example.learnretrofit.LearnDataSave.Category"></mapping>
+        <mapping class="com.example.learnretrofit.LearnDataSave.Book"></mapping>
+    </list>
+</litepal>
