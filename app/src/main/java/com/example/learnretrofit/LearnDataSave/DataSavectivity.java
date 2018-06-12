@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.learnretrofit.LearnVolley.learnVolley;
 import com.example.learnretrofit.R;
 
 import org.litepal.LitePal;
@@ -33,7 +34,8 @@ public class DataSavectivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_savectivity);
-        initLitePalView();
+//        initLitePalView();
+        learnVolley.useVolley(getApplicationContext());
     }
 
     private void initLitePalView() {
