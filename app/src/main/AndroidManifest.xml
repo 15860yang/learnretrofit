@@ -16,14 +16,25 @@
         <activity android:name=".LearnEventBus.EventBusTestActivity02" />
         <activity android:name=".LearnOtto.LearnOtto" />
         <activity android:name=".LearnOtto.Otto2Activity" />
-        <activity android:name=".LearnMVVM.MvvmActivity"></activity>
-        <activity android:name=".LearnDataSave.DataSavectivity">
+        <activity android:name=".LearnMVVM.MvvmActivity" />
+        <activity android:name=".LearnDataSave.DataSavectivity" />
+        <activity android:name=".LearnRemoteView.RemoteViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LearnRemoteView.RemoteView_goActivity"/>
+        <receiver android:name=".LearnRemoteView.MyAppWidthProvider">
+
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/xml"/>
+            <intent-filter>
+                <action android:name="com.example.learnretrofit.MyAppWidthProvider"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
