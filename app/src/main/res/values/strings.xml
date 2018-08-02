@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LearnRetrofit</string>
+    <string name="local_service_started">通知</string>
 </resources>

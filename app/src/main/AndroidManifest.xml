@@ -4,6 +4,17 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.example.learnretrofit.LearnMoreProcess.permission.ACCESS_APPLE_SERVICE" />
+    <uses-permission android:name="com.example.permission.MyContentProvider.MyDataProvider" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <permission
+        android:name="com.example.learnretrofit.LearnMoreProcess.permission.ACCESS_APPLE_SERVICE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.example.permission.MyContentProvider.MyDataProvider"
+        android:protectionLevel="normal" />
 
     <application
         android:name="org.litepal.LitePalApplication"
@@ -32,14 +43,49 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
         </receiver>
-        <activity android:name=".LearnWindow.LearnWindowActivity"/>
-        <activity android:name=".LearnRXJava.RXJavaActivity">
+
+        <activity android:name=".LearnWindow.LearnWindowActivity" />
+        <activity android:name=".LearnRXJava.RXJavaActivity" />
+        <activity android:name=".LearnService.ServiceActivity" />
+
+        <service
+            android:name=".LearnService.LocalService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".LearnMoreProcess.LearnMoreProcessActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".LearnMoreProcess.LearnMoreProcess2Activity"
+            android:process="com.example.LearnMoreProcess.progress1" />
+        <activity
+            android:name=".LearnMoreProcess.LearnMoreProcess3Activity"
+            android:process="com.example.LearnMoreProcess.progress2" />
+
+        <service android:name=".LearnMoreProcess.process1Service" />
+        <service android:name=".LearnMoreProcess.MessengerService" />
+        <service android:name=".LearnMoreProcess.AppleManagerService" />
+
+        <provider
+            android:name=".LearnMoreProcess.MyContentProvider.MyDataProvider"
+            android:authorities="com.example.learnretrofit.LearnMoreProcess.MyContentProvider.MyDataProvider"
+            android:permission="com.example.permission.MyContentProvider.MyDataProvider"
+            android:process=":provider" />
+
+        <activity android:name=".LearnMoreProcess.MyContentProvider.ProviderActivity" />
+
+        <service android:name=".LearnMoreProcess.SocketTest.SocketService" />
+
+        <activity android:name=".LearnMoreProcess.SocketTest.SocketActivity" />
+        <activity android:name=".LearnMoreProcess.BinderPool.BinderPoolActivity"></activity>
+
+        <service android:name=".LearnMoreProcess.BinderPool.BinderPoolService"/>
+
     </application>
 
 </manifest>
